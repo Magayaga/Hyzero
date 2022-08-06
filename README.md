@@ -8,6 +8,7 @@
 * Read the [Get Started](docs/Get_started.md)
 * Read the [Examples](docs/example.myopl)
 * Read the [Grammer](docs/grammar.txt)
+* Read the [Download](docs/Download.md)
 
 </details>
 
