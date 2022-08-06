@@ -12,19 +12,12 @@
   ```
 
 * Run
-  A. Either run from the interpreter directly:
+  Either run from the interpreter directly:
 
   ```
   python hyzero.py test.hyzero
   ```
 
-  B. Or run in an interactive shell:
-
-  ```
-  python shell.py
-  
-  run("test.hyzero")
-  ```
 * Output
 
   ```
