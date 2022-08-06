@@ -1,25 +1,22 @@
-#######################################
-# IMPORTS
-#######################################
+# Hyzero programming language — Pre-Alpha version of the Private
+# Copyright 2022 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
+# Copyright 2001-2022 Python Software Foundation (https://www.python.org/psf)
 
+
+# IMPORTS #######################################
 from strings_with_arrows import *
 
 import string
 import os
 import math
 
-#######################################
-# CONSTANTS
-#######################################
-
+# CONSTANTS #######################################
 DIGITS = '0123456789'
 LETTERS = string.ascii_letters
 LETTERS_DIGITS = LETTERS + DIGITS
 
-#######################################
-# ERRORS
-#######################################
 
+# ERRORS #######################################
 class Error:
   def __init__(self, pos_start, pos_end, error_name, details):
     self.pos_start = pos_start
@@ -68,10 +65,8 @@ class RTError(Error):
 
     return 'Traceback (most recent call last):\n' + result
 
-#######################################
-# POSITION
-#######################################
 
+# POSITION #######################################
 class Position:
   def __init__(self, idx, ln, col, fn, ftxt):
     self.idx = idx
@@ -93,10 +88,8 @@ class Position:
   def copy(self):
     return Position(self.idx, self.ln, self.col, self.fn, self.ftxt)
 
-#######################################
-# TOKENS
-#######################################
 
+# TOKENS #######################################
 TT_INT				= 'INT'
 TT_FLOAT    	= 'FLOAT'
 TT_STRING			= 'STRING'
@@ -163,10 +156,8 @@ class Token:
     if self.value: return f'{self.type}:{self.value}'
     return f'{self.type}'
 
-#######################################
-# LEXER
-#######################################
 
+# LEXER #######################################
 class Lexer:
   def __init__(self, fn, text):
     self.fn = fn
@@ -360,10 +351,8 @@ class Lexer:
 
     self.advance()
 
-#######################################
-# NODES
-#######################################
 
+# NODES #######################################
 class NumberNode:
   def __init__(self, tok):
     self.tok = tok
@@ -503,10 +492,8 @@ class BreakNode:
     self.pos_start = pos_start
     self.pos_end = pos_end
 
-#######################################
-# PARSE RESULT
-#######################################
 
+# PARSE RESULT #######################################
 class ParseResult:
   def __init__(self):
     self.error = None
@@ -540,10 +527,8 @@ class ParseResult:
       self.error = error
     return self
 
-#######################################
-# PARSER
-#######################################
 
+# PARSER #######################################
 class Parser:
   def __init__(self, tokens):
     self.tokens = tokens
@@ -1249,10 +1234,8 @@ class Parser:
 
     return res.success(left)
 
-#######################################
-# RUNTIME RESULT
-#######################################
 
+# RUNTIME RESULT #######################################
 class RTResult:
   def __init__(self):
     self.reset()
@@ -1305,10 +1288,8 @@ class RTResult:
       self.loop_should_break
     )
 
-#######################################
-# VALUES
-#######################################
 
+# VALUES #######################################
 class Value:
   def __init__(self):
     self.set_pos()
@@ -1869,10 +1850,8 @@ BuiltInFunction.extend      = BuiltInFunction("extend")
 BuiltInFunction.len					= BuiltInFunction("len")
 BuiltInFunction.run					= BuiltInFunction("run")
 
-#######################################
-# CONTEXT
-#######################################
 
+# CONTEXT #######################################
 class Context:
   def __init__(self, display_name, parent=None, parent_entry_pos=None):
     self.display_name = display_name
@@ -1880,10 +1859,8 @@ class Context:
     self.parent_entry_pos = parent_entry_pos
     self.symbol_table = None
 
-#######################################
-# SYMBOL TABLE
-#######################################
 
+# SYMBOL TABLE #######################################
 class SymbolTable:
   def __init__(self, parent=None):
     self.symbols = {}
@@ -1901,10 +1878,8 @@ class SymbolTable:
   def remove(self, name):
     del self.symbols[name]
 
-#######################################
-# INTERPRETER
-#######################################
 
+# INTERPRETER #######################################
 class Interpreter:
   def visit(self, node, context):
     method_name = f'visit_{type(node).__name__}'
@@ -2155,30 +2130,28 @@ class Interpreter:
   def visit_BreakNode(self, node, context):
     return RTResult().success_break()
 
-#######################################
-# RUN
-#######################################
 
+# RUN #######################################
 global_symbol_table = SymbolTable()
-global_symbol_table.set("NULL", Number.null)
-global_symbol_table.set("FALSE", Number.false)
-global_symbol_table.set("TRUE", Number.true)
-global_symbol_table.set("MATH_PI", Number.math_PI)
-global_symbol_table.set("PRINT", BuiltInFunction.print)
-global_symbol_table.set("PRINT_RET", BuiltInFunction.print_ret)
-global_symbol_table.set("INPUT", BuiltInFunction.input)
-global_symbol_table.set("INPUT_INT", BuiltInFunction.input_int)
-global_symbol_table.set("CLEAR", BuiltInFunction.clear)
-global_symbol_table.set("CLS", BuiltInFunction.clear)
-global_symbol_table.set("IS_NUM", BuiltInFunction.is_number)
-global_symbol_table.set("IS_STR", BuiltInFunction.is_string)
-global_symbol_table.set("IS_LIST", BuiltInFunction.is_list)
-global_symbol_table.set("IS_FUN", BuiltInFunction.is_function)
-global_symbol_table.set("APPEND", BuiltInFunction.append)
-global_symbol_table.set("POP", BuiltInFunction.pop)
-global_symbol_table.set("EXTEND", BuiltInFunction.extend)
-global_symbol_table.set("LEN", BuiltInFunction.len)
-global_symbol_table.set("RUN", BuiltInFunction.run)
+global_symbol_table.set("null", Number.null)
+global_symbol_table.set("false", Number.false)
+global_symbol_table.set("true", Number.true)
+global_symbol_table.set("math_pi", Number.math_PI)
+global_symbol_table.set("print", BuiltInFunction.print)
+global_symbol_table.set("print_ret", BuiltInFunction.print_ret)
+global_symbol_table.set("input", BuiltInFunction.input)
+global_symbol_table.set("input_int", BuiltInFunction.input_int)
+global_symbol_table.set("clear", BuiltInFunction.clear)
+global_symbol_table.set("cls", BuiltInFunction.clear)
+global_symbol_table.set("is_num", BuiltInFunction.is_number)
+global_symbol_table.set("is_str", BuiltInFunction.is_string)
+global_symbol_table.set("is_list", BuiltInFunction.is_list)
+global_symbol_table.set("is_fun", BuiltInFunction.is_function)
+global_symbol_table.set("append", BuiltInFunction.append)
+global_symbol_table.set("pop", BuiltInFunction.pop)
+global_symbol_table.set("extend", BuiltInFunction.extend)
+global_symbol_table.set("len", BuiltInFunction.len)
+global_symbol_table.set("run", BuiltInFunction.run)
 
 def run(fn, text):
   # Generate tokens

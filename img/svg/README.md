@@ -1,0 +1,2 @@
+# Warning
+Please note that the labels below are usually included in the `README.md` file of the project repository. If the project has been forked, the label will be carried over to the new organisation. **Magayaga, Verifo, and OpinionWork** is solely responsible for repositories under the OpinionWork, Hyzero, Muse, and Diego organisations. If you have forked one of Magayaga, Verifo, and OpinionWork repositories, please make sure you remove the corresponding labels.
