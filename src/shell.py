@@ -5,7 +5,7 @@
 import hyzero
 
 print("Hyzero programming language (v0.0.2) — created and developed by Cyril John Magayaga (https://github.com/magayaga)")
-print("Motto: You are most popular, beautiful, and colorful programming language!")
+print("You are most popular, beautiful, and colorful programming language!")
 
 while True:
 	text = input('Hyzero > ')
