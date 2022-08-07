@@ -1,7 +1,10 @@
 [![Magayaga Official](img/svg/cjm_official.svg)](img/svg/README.md)
+[![Magayaga License](img/svg/license.svg)](img/svg/README.md)
 # [![Official Logo](img/svg/logo.svg)](https://github.com/magayaga/hyzero)
 
 **Hyzero** (also known as **Hydrogen Zero** or **H0**) is a high-level, interpreted, general-purpose programming language created, designed, and developed by [Cyril John Magayaga](https://github.com/magayaga). It is the **Philippines’ first creating programming language in the twenty-first country**, after **one of the Philippines’ first easiest programming languages**.
+
+[![Official Logo](img/svg/hyzero_official.svg)](https://github.com/magayaga/hyzero)
 
 <details><summary style="font-size: 25px;">Documentation</summary>
 
@@ -23,7 +26,7 @@ The Hyzero documents, design, implementation, and related tools are hosted on Gi
 
 **On August 5, 2022**, Cyril John Magayaga announced that __Hyzero__ become new high-level and general-purpose programming language, and the Philippines’ first easiest programming languages. The new filename extension on .hyzero is called the source code of a program. 
 
-**On August 6, 2022**, Cyril John Magayaga announced that __Hyzero__ programming languages like __Python__, and incoming __C__ as upcoming in September 2022.
+**On August 6, 2022**, Cyril John Magayaga announced that __Hyzero__ programming languages like __Python__, the incoming __C__ as upcoming in September 2022, and incoming __JavaScript__ as upcoming in December 2022.
 
 </details>
 
