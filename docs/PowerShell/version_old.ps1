@@ -1,0 +1,5 @@
+Write-host "Hyzero Programming Language"
+Write-host "Version: v0.0.1"
+Write-host "Original Author: Cyril John Magayaga"
+Write-host "Developer(s): Cyril John Magayaga"
+Write-host "Release Date: July 30, 2022"
