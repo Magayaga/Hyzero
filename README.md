@@ -2,11 +2,11 @@
 [![Magayaga License](img/svg/license.svg)](img/svg/README.md)
 # [![Official Logo](img/svg/logo.svg)](https://github.com/magayaga/hyzero)
 
-**Hyzero** (also known as **Hydrogen Zero** or **H0**) is a high-level, interpreted, general-purpose programming language created, designed, and developed by [Cyril John Magayaga](https://github.com/magayaga). It is the **Philippines’ first creating programming language in the twenty-first country**, after **one of the Philippines’ first easiest programming languages**.
+**Hyzero** (also known as **Hydrogen Zero** or **H0**) is a high-level, interpreted, general-purpose programming language created, designed, and developed by [Cyril John Magayaga](https://github.com/magayaga). It is the **Philippines’ first creating programming language in the twenty-first country**, after **one of the Philippines’ first easiest programming languages**. This is like **_Python_** programming language.
 
 [![Official Logo](img/svg/hyzero_official.svg)](https://github.com/magayaga/hyzero)
 
-<details><summary style="font-size: 25px;">Documentation</summary>
+<details><summary>Documentation</summary>
 
 * Read the [Get Started](docs/Get_started.md)
 * Read the [Examples](docs/example.myopl)
@@ -14,8 +14,17 @@
 * Read the [Download](docs/Download.md)
 
 </details>
+<details><summary>Examples</summary>
 
-<details><summary style="font-size: 25px;">History</summary>
+1. The following shows how the simple **Hello, World!** the app is written in **Hyzero**.
+
+```python
+print("Hello, World!");
+```
+
+</details>
+
+<details><summary>History</summary>
 
 ### 1. New programming language of the Asia (2022-present)
 Hyzero was created on July 25, 2022, by Cyril John Magayaga. It is the Philippines' first programming language.
@@ -30,7 +39,7 @@ The Hyzero documents, design, implementation, and related tools are hosted on Gi
 
 </details>
 
-<details><summary style="font-size: 25px;">Copyright & License</summary>
+<details><summary>Copyright & License</summary>
 
 ### Copyright: 
 * Copyright 2022 [Cyril John Magayaga](https://github.com/magayaga)
@@ -42,5 +51,3 @@ The Hyzero documents, design, implementation, and related tools are hosted on Gi
 The **Hyzero** documents, design, implementation, and related tools are hosted on **GitHub private** under the **OpinionOne (Latest Version 2)**.
 
 </details>
-
-
