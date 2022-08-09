@@ -9,6 +9,12 @@ from strings_with_arrows import *
 import string
 import os
 import math
+import sys
+import ctypes
+import datetime
+
+# CTYPES #######################################
+ctypes.windll.kernel32.SetConsoleTitleW("Hyzero Shell")
 
 # CONSTANTS #######################################
 DIGITS = '0123456789'
@@ -2171,3 +2177,20 @@ def run(fn, text):
   result = interpreter.visit(ast.node, context)
 
   return result.value, result.error
+
+
+# IMPORT SYS #######################################
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        with open(sys.argv[1], 'r') as five:
+            code = five.read()
+        result, error = run(sys.argv[1], code)
+        if error:
+            print(error.as_string())
+        sys.exit(0 if not error else 1)
+
+
+# IMPORT DATETIME #######################################
+x = datetime.datetime(2022, 8, 10)
+
+print(x.strftime("Latest Release Date: %D"))

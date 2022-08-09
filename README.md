@@ -26,7 +26,7 @@ The Hyzero documents, design, implementation, and related tools are hosted on Gi
 
 **On August 5, 2022**, Cyril John Magayaga announced that __Hyzero__ become new high-level and general-purpose programming language, and the Philippines’ first easiest programming languages. The new filename extension on .hyzero is called the source code of a program. 
 
-**On August 6, 2022**, Cyril John Magayaga announced that __Hyzero__ programming languages like __Python__, the incoming __C__ as upcoming in September 2022, and incoming __JavaScript__ as upcoming in December 2022.
+**On August 6, 2022**, Cyril John Magayaga announced that __Hyzero__ programming languages like __Python__. The _Hyzero 0.1_ was released on __September 5, 2022__, with many major new features.
 
 </details>
 

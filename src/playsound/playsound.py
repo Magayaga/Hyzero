@@ -2,15 +2,26 @@
 # Copyright 2022 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
 # Copyright 2001-2022 Python Software Foundation (https://www.python.org/psf)
 
-import hyzero
+import pkg_resources
+import sys
+import playsound
 
+# PKG RESOURCES / SYS
+try:
+    dist = pkg_resources.get_distribution('playsound')
+    print("{} ({}) is installed, to grab the shovel".format(dist.key, dist.version))
+except pkg_resources.DistributionNotFound:
+    print("I love, install me the {} or else we don't work".format('playsound'))
+    sys.exit(0)
+
+# PLAYSOUND
 print("Hyzero programming language (v0.0.3)")
 print("created & developed by Cyril John Magayaga")
 
 while True:
-	text = input('Hyzero > ')
+	text = input('Hyzero Playsound > ')
 	if text.strip() == "": continue
-	result, error = hyzero.run('<stdin>', text)
+	result, error = playsound.run('<stdin>', text)
 
 	if error:
 		print(error.as_string())
