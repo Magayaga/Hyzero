@@ -4,7 +4,7 @@
 
 import hyzero
 
-print("Hyzero programming language (v0.0.3)")
+print("Hyzero programming language (v0.1.0)")
 print("created & developed by Cyril John Magayaga")
 
 while True:

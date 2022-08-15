@@ -10,11 +10,6 @@ import string
 import os
 import math
 import sys
-import ctypes
-import datetime
-
-# CTYPES #######################################
-ctypes.windll.kernel32.SetConsoleTitleW("Hyzero Shell")
 
 # CONSTANTS #######################################
 DIGITS = '0123456789'
@@ -2143,8 +2138,8 @@ global_symbol_table.set("null", Number.null)
 global_symbol_table.set("false", Number.false)
 global_symbol_table.set("true", Number.true)
 global_symbol_table.set("math_pi", Number.math_PI)
-global_symbol_table.set("print", BuiltInFunction.print)
-global_symbol_table.set("print_ret", BuiltInFunction.print_ret)
+global_symbol_table.set("write", BuiltInFunction.print)
+global_symbol_table.set("write_ret", BuiltInFunction.print_ret)
 global_symbol_table.set("input", BuiltInFunction.input)
 global_symbol_table.set("input_int", BuiltInFunction.input_int)
 global_symbol_table.set("clear", BuiltInFunction.clear)
@@ -2188,9 +2183,3 @@ if __name__ == "__main__":
         if error:
             print(error.as_string())
         sys.exit(0 if not error else 1)
-
-
-# IMPORT DATETIME #######################################
-x = datetime.datetime(2022, 8, 10)
-
-print(x.strftime("Latest Release Date: %D"))
