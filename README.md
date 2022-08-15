@@ -23,7 +23,7 @@ Hyzero programming language in original version (**v0.0.1 - v0.0.3**):
 ```python
 print("Hello, World!")
 ```
-Hyzero programming language in current version (**v0.1.0**):
+Hyzero programming language in current version (**v0.1.0** - _present_):
 
 ```rust
 write("Hello, World!")
