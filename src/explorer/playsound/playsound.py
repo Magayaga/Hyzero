@@ -15,7 +15,7 @@ except pkg_resources.DistributionNotFound:
     sys.exit(0)
 
 # PLAYSOUND
-print("Hyzero programming language (v0.0.3)")
+print("Hyzero Playsound (v0.0.3)") # Old version of Hyzero
 print("created & developed by Cyril John Magayaga")
 
 while True:

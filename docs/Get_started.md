@@ -2,11 +2,11 @@
 
 ## Usage
 
-* Create a `.hyzero` file as `test.hyzero`
+* Create a `.hyzero` file as `main.hyzero`
 
-  ```
-  print("Hello, World!")
-  print("Welcome, Hyzero!")
+  ```rust
+  write("Hello, World!")
+  write("Welcome, Hyzero!")
   ```
 
 * Run
@@ -14,14 +14,14 @@
   Either run from the interpreter directly:
 
   ```
-  python hyzero.py test.hyzero
+  python hyzero.py main.hyzero
   ```
 
   Or run in an interactive shell:
 
   ```
-  python shell.py
-  run("test.hyzero")
+  python hyzero.py or python src\shell.py
+  run("main.hyzero")
   ```
 * Output
 
