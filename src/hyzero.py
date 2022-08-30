@@ -117,25 +117,7 @@ TT_ARROW			= 'ARROW'
 TT_NEWLINE		= 'NEWLINE'
 TT_EOF				= 'EOF'
 
-KEYWORDS = [
-  'VAR',
-  'AND',
-  'OR',
-  'NOT',
-  'IF',
-  'ELIF',
-  'ELSE',
-  'FOR',
-  'TO',
-  'STEP',
-  'WHILE',
-  'FUN',
-  'THEN',
-  'END',
-  'RETURN',
-  'CONTINUE',
-  'BREAK',
-]
+KEYWORDS = ['VAR', 'AND', 'OR', 'NOT', 'IF', 'ELIF', 'ELSE', 'FOR', 'TO', 'STEP', 'WHILE', 'FUN', 'THEN', 'END', 'RETURN', 'CONTINUE', 'BREAK',]
 
 class Token:
   def __init__(self, type_, value=None, pos_start=None, pos_end=None):
@@ -1836,10 +1818,10 @@ class BuiltInFunction(BaseFunction):
     return RTResult().success(Number.null)
   execute_run.arg_names = ["fn"]
 
-BuiltInFunction.print       = BuiltInFunction("print")
-BuiltInFunction.print_ret   = BuiltInFunction("print_ret")
+BuiltInFunction.print       = BuiltInFunction("write / print")
+BuiltInFunction.print_ret   = BuiltInFunction("writeRet / print_ret")
 BuiltInFunction.input       = BuiltInFunction("input")
-BuiltInFunction.input_int   = BuiltInFunction("input_int")
+BuiltInFunction.input_int   = BuiltInFunction("inputInt")
 BuiltInFunction.clear       = BuiltInFunction("clear")
 BuiltInFunction.is_number   = BuiltInFunction("is_number")
 BuiltInFunction.is_string   = BuiltInFunction("is_string")

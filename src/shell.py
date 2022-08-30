@@ -4,7 +4,7 @@
 
 import hyzero
 
-print("Hyzero v0.1.2 (August 25, 2022) - created & developed by Cyril John Magayaga")
+print("Hyzero v0.1.3 (August 30, 2022) - created & developed by Cyril John Magayaga")
 
 while True:
 	text = input('Hyzero > ')
