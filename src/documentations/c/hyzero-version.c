@@ -6,8 +6,8 @@
 
 int main() {
     printf("Hyzero Programming Language - created and developed by Cyril John Magayaga\n");
-    printf("Latest version number (v0.1.3)\n");
-    printf("Latest version date (August 30, 2022)\n");
+    printf("Latest version number (v0.1.4)\n");
+    printf("Latest version date (September 4, 2022)\n");
     printf("Use ((./hyzeroHelp or hyzeroHelp.exe)) for more information about that topic.\n");
     return 0;
 }

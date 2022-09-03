@@ -3,7 +3,7 @@
 # Copyright 2001-2022 Python Software Foundation (https://www.python.org/psf)
 
 import unittest
-import hyzero
+import hyzero #hyzero.py
 
 
 class TestStringOperators(unittest.TestCase):

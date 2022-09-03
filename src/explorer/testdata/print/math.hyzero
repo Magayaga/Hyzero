@@ -2,16 +2,10 @@
 # Copyright 2022 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
 # Copyright 2001-2022 Python Software Foundation (https://www.python.org/psf)
 
-write("H")
-write("He")
-write("Hel")
-write("Hell")
-write("Hello")
-write("Hello,")
-write("Hello, ")
-write("Hello, W")
-write("Hello, Wo")
-write("Hello, Wor")
-write("Hello, Worl")
-write("Hello, World")
-write("Hello, World!")
+write(157 + 193)
+write(456 - 147)
+write(115 * 12)
+write(1175 / 9)
+
+#Operation
+write((34 * 5) + 19 / 2)

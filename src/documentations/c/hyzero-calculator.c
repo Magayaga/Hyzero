@@ -23,7 +23,7 @@ int main()
     do  
     {  
         // displays the multiple operations of the C Calculator  
-        printf (" Hyzero Calculator (v0.1.3) - created & developed by Cyril John Magayaga\n");
+        printf (" Hyzero Calculator (v0.1.4) - created & developed by Cyril John Magayaga\n");
         printf (" -----------------------------------------------------------------------\n");
         printf (" Select an operation to perform the calculation in C Calculator:\n");  
         printf (" 1 Addition  \t \t 2 Subtraction \n 3 Multiplication \t 4 Division \n 5 Square \t \t 6 Square Root \n 7 Exit \n \n Please, Make a choice ");      

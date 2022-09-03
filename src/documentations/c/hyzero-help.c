@@ -5,11 +5,14 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hyzero programming language (v0.1.3) - created and developed by Cyril John Magayaga\n");
+    printf("Hyzero programming language (v0.1.4) - created and developed by Cyril John Magayaga\n");
     printf("Commands: \n");
     printf("   ./hyzeroRelease or hyzeroRelease.exe           It is the current and original release.\n");
     printf("\n");
-    printf("   ./hyzeroVersion or hyzeroVersion.exe           It is the current version number");
+    printf("   ./hyzeroVersion or hyzeroVersion.exe           It is the current version number\n");
+    printf("\n");
+    printf("   ./hyzeroOldVersion or hyzeroOldVersion.exe     It is the list of the older version of\n");
+    printf("                                                  Hyzero programming language.\n");
     printf("\n");
     printf("   ./hyzeroHelp or hyzeroHelp.exe                 Help of the Hyzero programming language.\n");
     printf("\n");
@@ -21,5 +24,11 @@ int main() {
     printf("\n");
     printf("   python hyzero.py                               Interpreter of Hyzero programming\n");
     printf("                                                  language, written in Python\n");
+    printf("\n");
+    printf("Functions:\n");
+    printf("   write()                                        Hyzero write() function takes in any number\n");
+    printf("                                                  of parameters, and prints them out on one\n");
+    printf("                                                  line of text.\n");
+    printf("\n");
     return 0;
 }

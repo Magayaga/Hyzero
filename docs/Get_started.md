@@ -34,7 +34,6 @@ Copyright
 * Copyright 2022 [Cyril John Magayaga](https://github.com/magayaga)
 * Copyright 2001-2022 [Python Software Foundation](https://www.python.org/psf/)
 * Copyright 2022 [OpinionWork Foundation](https://github.com/OpinionWork)
-  * Copyright 2022 [OpinionOne License](https://github.com/OpinionWork/OpinionOne)
 
 License
 -----

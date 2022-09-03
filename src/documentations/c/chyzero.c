@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hyzero programming language (v0.1.3) - created and developed by Cyril John Magayaga\n");
+    printf("Hyzero programming language (v0.1.4) - created and developed by Cyril John Magayaga\n");
     printf("--------------------------------------------------------------------------------\n");
     printf("statements  : NEWLINE* statement (NEWLINE+ statement)* NEWLINE*\n");
     printf("\n");
