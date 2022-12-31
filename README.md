@@ -87,8 +87,8 @@ Hyzero > write("Hello, World!")
 ## Copyright & License
 
 ### Copyright: 
-* Copyright 2022 [Cyril John Magayaga](https://github.com/magayaga)
-* Copyright 2001-2022 [Python Software Foundation](https://www.python.org/psf/)
+* Copyright 2022-2023 [Cyril John Magayaga](https://github.com/magayaga)
+* Copyright 2001-2023 [Python Software Foundation](https://www.python.org/psf/)
 
 ### License:
 The **Hyzero** documents, design, implementation, and related tools are hosted on **GitHub public** under the **OpinionOne (Latest Version 2)**.
