@@ -63,7 +63,6 @@ There are a few languages that have followed this model for other ecosystems, an
 * Java → Kotlin
 * MATLAB → Julia
 * Objective-C → Swift
-* C++ → Carbon
 * Python → **_Hyzero_**
 
 ## Getting started

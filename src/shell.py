@@ -1,10 +1,10 @@
 # Hyzero programming language — Pre-Alpha version of the Private
-# Copyright 2022 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
-# Copyright 2001-2022 Python Software Foundation (https://www.python.org/psf)
+# Copyright 2022-2023 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
+# Copyright 2001-2023 Python Software Foundation (https://www.python.org/psf)
 
 import hyzero
 
-print("Hyzero v0.1.4 (September 4, 2022) - created & developed by Cyril John Magayaga")
+print("Hyzero v0.1.5 (February 4, 2023) - created & developed by Cyril John Magayaga")
 
 while True:
 	text = input('Hyzero > ')
