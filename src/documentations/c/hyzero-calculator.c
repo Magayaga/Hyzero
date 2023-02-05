@@ -1,6 +1,6 @@
 // Hyzero programming language — Pre-Alpha version of the Private
-// Copyright 2022 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
-// Copyright 2001-2022 Python Software Foundation (https://www.python.org/psf)
+// Copyright 2022-2023 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
+// Copyright 2001-2023 Python Software Foundation (https://www.python.org/psf)
 
 #include <stdio.h>  
 #include <conio.h>  
@@ -23,7 +23,7 @@ int main()
     do  
     {  
         // displays the multiple operations of the C Calculator  
-        printf (" Hyzero Calculator (v0.1.4) - created & developed by Cyril John Magayaga\n");
+        printf (" Hyzero Calculator (v0.1.5) - created & developed by Cyril John Magayaga\n");
         printf (" -----------------------------------------------------------------------\n");
         printf (" Select an operation to perform the calculation in C Calculator:\n");  
         printf (" 1 Addition  \t \t 2 Subtraction \n 3 Multiplication \t 4 Division \n 5 Square \t \t 6 Square Root \n 7 Exit \n \n Please, Make a choice ");      
