@@ -73,7 +73,7 @@ To build the **Hyzero** explorer yourself, follow these instructions:
 
 ```shell
 # Download the Hyzero's code
-$ git clone https://github.com/Magayaga/Hyzero
+$ git clone https://github.com/Magayaga/Hyzero.git
 $ cd Hyzero
 
 # You are choose the make or gcc
@@ -82,11 +82,12 @@ $ make hyzero-help
 $ ./hyzero-help
 
 # Run the explorer
-$ python src/hyzero.py explorer/testdata/math/math.hyzero
+$ python hyzero.py explorer/testdata/math/math.hyzero
+$ python hyzero.py explorer/testdata/print/pyramid.hyzero
 
 # Run the shell
 $ python shell.py
-Hyzero v0.1.5 (February 4, 2023) - created & developed by Cyril John Magayaga
+Hyzero v0.1.6-beta1 (February 19, 2023) - created & developed by Cyril John Magayaga
 Hyzero > write("Hello, World!")
 ```
 

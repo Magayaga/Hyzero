@@ -1,0 +1,1 @@
+FUN oopify(prefix) -> prefix + "oop"
