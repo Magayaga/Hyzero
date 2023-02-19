@@ -2,10 +2,18 @@
 # Copyright 2022-2023 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
 # Copyright 2001-2023 Python Software Foundation (https://www.python.org/psf)
 
+# Addition
 write(157 + 193)
+
+# Subtraction
 write(456 - 147)
+
+# Multiplication
 write(115 * 12)
+
+# Division
 write(1175 / 9)
 
 #Operation
 write((34 * 5) + 19 / 2)
+write(13 * 2 / 5 - (24 - 2))
