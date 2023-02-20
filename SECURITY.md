@@ -1,7 +1,7 @@
 # SECURITY POLICY
 ## Security
 
-**Magayaga** takes the security of our software products and services seriously, which includes all source code repositories managed through our GitHub profiles and private organizations, which include [Magayaga](https://github.com/magayaga), [Verifo](https://github.com/verifo) (formerly Vancely Repositories), and [OpinionWork](https://github.com/OpinionWork).
+**Magayaga** takes the security of our software products and services seriously, which includes all source code repositories managed through our GitHub profiles and private organizations, which include [Magayaga](https://github.com/magayaga) and [OpinionWork](https://github.com/OpinionWork).
 
 ## Reporting Security Issues
 

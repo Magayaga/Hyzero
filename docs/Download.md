@@ -1,6 +1,6 @@
 # Download
 
-* GitHub on Git
+* Downloading git
 ```
 git clone https://github.com/Magayaga/Hyzero.git
 ```

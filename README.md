@@ -61,8 +61,7 @@ There are a few languages that have followed this model for other ecosystems, an
 * Visual Basic → Visual Basic .NET
 * JavaScript → TypeScript
 * Java → Kotlin
-* MATLAB → Julia
-* Objective-C → Swift
+* C++ → Carbon
 * Python → **_Hyzero_**
 
 ## Getting started
@@ -98,5 +97,5 @@ Hyzero > write("Hello, World!")
 * Copyright 2001-2023 [Python Software Foundation](https://www.python.org/psf/)
 
 ### License:
-The **Hyzero** documents, design, implementation, and related tools are hosted on **GitHub public** under the **OpinionOne (Latest Version 2)**.
+The **Hyzero** documents, design, implementation, and related tools are hosted on **GitHub public** under the [**OpinionOne (Latest Version 2)**](LICENSE).
 

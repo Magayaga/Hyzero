@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hyzero programming language (v0.1.5) - created and developed by Cyril John Magayaga\n");
+    printf("Hyzero programming language (v0.1.6-beta1) - created and developed by Cyril John Magayaga\n");
     printf("Commands: \n");
     printf("   ./hyzeroRelease or hyzeroRelease.exe           It is the current and original release.\n");
     printf("\n");

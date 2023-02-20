@@ -7,7 +7,7 @@
 int main() {
     printf("Hyzero programming language\n");
     printf("-------------------------------------------------\n");
-    printf("Latest release: v0.1.5 / February 4, 2023\n");
+    printf("Latest release: v0.1.6-beta1 / February 19, 2023\n");
     printf("Initial release: v0.0.1 / July 30, 2022\n");
     printf("Original author/Developer(s): Cyril John Magayaga\n");
     return 0;
