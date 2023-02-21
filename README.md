@@ -70,22 +70,57 @@ Download the [Python](https://python.org/downloads) programming language.
 
 To build the **Hyzero** explorer yourself, follow these instructions:
 
+### Windows
 ```shell
 # Download the Hyzero's code
 $ git clone https://github.com/Magayaga/Hyzero.git
 $ cd Hyzero
 
-# You are choose the make or gcc
+# Download the Python
+$ choco install python
+
+# You are choose the make, gcc, or clang
+$ cd src/docs/c/
 $ gcc hyzero-help.c -o hyzero-help
+$ clang -o hyzero-help hyzero-help.c
 $ make hyzero-help
 $ ./hyzero-help
 
 # Run the explorer
-$ python hyzero.py explorer/testdata/math/math.hyzero
-$ python hyzero.py explorer/testdata/print/pyramid.hyzero
+$ python src/hyzero.py src/explorer/testdata/math/math.hyzero
+$ python src/hyzero.py src/explorer/testdata/print/pyramid.hyzero
 
 # Run the shell
-$ python shell.py
+$ python src/shell.py
+Hyzero v0.1.6-beta1 (February 19, 2023) - created & developed by Cyril John Magayaga
+Hyzero > write("Hello, World!")
+```
+
+### macOS and Linux
+```shell
+# Download the Hyzero's code on macOS and Linux
+$ git clone https://github.com/Magayaga/Hyzero.git
+$ cd Hyzero
+
+# Download the Python on macOS
+$ brew install python3
+
+# Download the Python on Linux
+$ sudo apt-get install python3 # Ubuntu or Debian
+$ sudo dnf install python3 # Fedora or Red Hat
+
+# You are choose the make, gcc, or clang
+$ cd src/docs/c/
+$ gcc hyzero-help.c -o hyzero-help
+$ clang -o hyzero-help hyzero-help.c
+$ make hyzero-help
+$ ./hyzero-help
+# Run the explorer
+$ python3 src/hyzero.py src/explorer/testdata/math/math.hyzero
+$ python3 src/hyzero.py src/explorer/testdata/print/pyramid.hyzero
+
+# Run the shell
+$ python3 src/shell.py
 Hyzero v0.1.6-beta1 (February 19, 2023) - created & developed by Cyril John Magayaga
 Hyzero > write("Hello, World!")
 ```
