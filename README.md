@@ -40,6 +40,20 @@ How can I add a `VAR` variable to `write()`?
   write(hi) 
   ```
 
+How can I trigonometric functions?
+- Trigonometry functions such as sine (`sin(x)`), cosine (`cos(x)`), and tangent (`tan(x)`) can also be calculated using the Hyzero programming language.
+
+   ```python
+   # sine
+   write(sin(mathPi / 2))
+
+   # cosine
+   write(cos(mathTau * 10))
+
+   # tangent
+   write(tan((mathE * mathPi) / 4))
+   ```
+
 ## History
 
 ### 1. New programming language of the Asia (2022-present)
