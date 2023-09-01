@@ -2,9 +2,15 @@
 # Copyright 2022-2023 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
 # Copyright 2001-2023 Python Software Foundation (https://www.python.org/psf)
 
-hyzero:
-	cc src/docs/c/chyzero.c -o chyzero
-	cc src/docs/c/hyzero-copyright.c -o hyzeroCopyright
-	cc src/docs/c/hyzero-help.c -o hyzeroHelp
-	cc src/docs/c/hyzero-release.c -o hyzeroRelease
-	cc src/docs/c/hyzero-version.c -o hyzeroVersion
+write(cbrt(1))
+write(cbrt(8))
+write(cbrt(27))
+write(cbrt(64))
+write(cbrt(125))
+write(cbrt(216))
+write(cbrt(343))
+write(cbrt(512))
+write(cbrt(729))
+write(cbrt(1000))
+write(cbrt(1331))
+write(cbrt(1728))

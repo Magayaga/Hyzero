@@ -14,23 +14,32 @@ Read the [Get Started](docs/Get_started.md) and [Download](docs/Download.md).
 
 ## Examples
 
-1. The following shows how the simple **Hello, World!** the app is written in **Hyzero**.
+The following shows how the simple **Hello, World!** program was written in **Hyzero**.
 
-Hyzero programming language in original version (**v0.0.1 - v0.0.3**):
+- Hyzero programming language in original version (**v0.0.1 - v0.0.3**):
 
-```python
-print("Hello, World!")
-```
-Hyzero programming language in current version (**v0.1.0** - _present_):
+  ```python
+  print("Hello, World!")
+  ```
+- Hyzero programming language in current version (**v0.1.0** - _present_):
 
-```rust
-write("Hello, World!")
-```
+  ```rust
+  write("Hello, World!")
+  ```
 
-Hyzero programming language as **Output**:
-```
-Hello, World!
-```
+- Hyzero programming language as **Output**:
+  ```
+  Hello, World!
+  ```
+
+How can I add a `VAR` variable to `write()`?
+- The `write()` function prints the given object to the standard output device (screen) or to the text stream file.
+
+  ```python
+  VAR hi = "Hello, World!"
+  write(hi) 
+  ```
+
 ## History
 
 ### 1. New programming language of the Asia (2022-present)
@@ -52,13 +61,14 @@ Not to be confused with [**_Hy_**](https://github.com/hylang/hy) _programming la
 
 __Hyzero__ programming language become **Strong** and **Dynamic** programming language. `.hyzero` was real file extension of **Hyzero**.
 
-**On August 30, 2022** Cyril John Magayaga announced that __Hyzero__ programming language become _public open-source projects_.
+**On August 30, 2022**, Cyril John Magayaga announced that __Hyzero__ programming language become _public open-source projects_.
+
+**On March 19, 2023**, Cyril John Magayaga says [**_pythOwO_**](https://github.com/virejdasani/pythOwO) programming language, It should be fixed and it is english language.
 
 ### Build of the Hyzero
 There are a few languages that have followed this model for other ecosystems, and Hyzero aims to fill an analogous role for Python:
 
 * C → C++
-* Visual Basic → Visual Basic .NET
 * JavaScript → TypeScript
 * Java → Kotlin
 * C++ → Carbon
@@ -79,20 +89,13 @@ $ cd Hyzero
 # Download the Python
 $ choco install python
 
-# You are choose the make, gcc, or clang
-$ cd src/docs/c/
-$ gcc hyzero-help.c -o hyzero-help
-$ clang -o hyzero-help hyzero-help.c
-$ make hyzero-help
-$ ./hyzero-help
-
 # Run the explorer
-$ python src/hyzero.py src/explorer/testdata/math/math.hyzero
-$ python src/hyzero.py src/explorer/testdata/print/pyramid.hyzero
+$ python src/hyzero.py explorer/testdata/math/math.hyzero
+$ python src/hyzero.py explorer/testdata/print/pyramid.hyzero
 
 # Run the shell
 $ python src/shell.py
-Hyzero v0.1.6-beta1 (February 19, 2023) - created & developed by Cyril John Magayaga
+Hyzero v0.1.6-beta2 (September 9, 2023) - created & developed by Cyril John Magayaga
 Hyzero > write("Hello, World!")
 ```
 
@@ -109,19 +112,13 @@ $ brew install python3
 $ sudo apt-get install python3 # Ubuntu or Debian
 $ sudo dnf install python3 # Fedora or Red Hat
 
-# You are choose the make, gcc, or clang
-$ cd src/docs/c/
-$ gcc hyzero-help.c -o hyzero-help
-$ clang -o hyzero-help hyzero-help.c
-$ make hyzero-help
-$ ./hyzero-help
 # Run the explorer
-$ python3 src/hyzero.py src/explorer/testdata/math/math.hyzero
-$ python3 src/hyzero.py src/explorer/testdata/print/pyramid.hyzero
+$ python3 src/hyzero.py explorer/testdata/math/math.hyzero
+$ python3 src/hyzero.py explorer/testdata/print/pyramid.hyzero
 
 # Run the shell
 $ python3 src/shell.py
-Hyzero v0.1.6-beta1 (February 19, 2023) - created & developed by Cyril John Magayaga
+Hyzero v0.1.6-beta2 (September 9, 2023) - created & developed by Cyril John Magayaga
 Hyzero > write("Hello, World!")
 ```
 

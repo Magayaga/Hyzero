@@ -2,9 +2,14 @@
 # Copyright 2022-2023 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
 # Copyright 2001-2023 Python Software Foundation (https://www.python.org/psf)
 
-hyzero:
-	cc src/docs/c/chyzero.c -o chyzero
-	cc src/docs/c/hyzero-copyright.c -o hyzeroCopyright
-	cc src/docs/c/hyzero-help.c -o hyzeroHelp
-	cc src/docs/c/hyzero-release.c -o hyzeroRelease
-	cc src/docs/c/hyzero-version.c -o hyzeroVersion
+write(sqrt(1))
+write(sqrt(4))
+write(sqrt(9))
+write(sqrt(16))
+write(sqrt(25))
+write(sqrt(36))
+write(sqrt(49))
+write(sqrt(64))
+write(sqrt(81))
+write(sqrt(100))
+write(sqrt(121))

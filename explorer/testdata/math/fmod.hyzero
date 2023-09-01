@@ -2,9 +2,7 @@
 # Copyright 2022-2023 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
 # Copyright 2001-2023 Python Software Foundation (https://www.python.org/psf)
 
-hyzero:
-	cc src/docs/c/chyzero.c -o chyzero
-	cc src/docs/c/hyzero-copyright.c -o hyzeroCopyright
-	cc src/docs/c/hyzero-help.c -o hyzeroHelp
-	cc src/docs/c/hyzero-release.c -o hyzeroRelease
-	cc src/docs/c/hyzero-version.c -o hyzeroVersion
+write(fmod(20, 4))
+write(fmod(20, 3))
+write(fmod(15, 6))
+write(fmod(-10, 3))

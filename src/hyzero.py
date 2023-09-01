@@ -18,7 +18,7 @@ import sys
 #######################################
 # CURRENT VERSION
 #######################################
-version = "v0.1.6-beta1"
+version = "v0.1.6-beta2"
 
 #######################################
 # CONSTANTS
@@ -109,31 +109,31 @@ class Position:
 # TOKENS
 #######################################
 
-TT_INT				= 'INT'
-TT_FLOAT    	= 'FLOAT'
-TT_STRING			= 'STRING'
-TT_IDENTIFIER	= 'IDENTIFIER'
-TT_KEYWORD		= 'KEYWORD'
-TT_PLUS     	= 'PLUS'
-TT_MINUS    	= 'MINUS'
-TT_MUL      	= 'MUL'
-TT_DIV      	= 'DIV'
-TT_POW				= 'POW'
-TT_EQ					= 'EQ'
-TT_LPAREN   	= 'LPAREN'
-TT_RPAREN   	= 'RPAREN'
-TT_LSQUARE    = 'LSQUARE'
-TT_RSQUARE    = 'RSQUARE'
-TT_EE					= 'EE'
-TT_NE					= 'NE'
-TT_LT					= 'LT'
-TT_GT					= 'GT'
-TT_LTE				= 'LTE'
-TT_GTE				= 'GTE'
-TT_COMMA			= 'COMMA'
-TT_ARROW			= 'ARROW'
-TT_NEWLINE		= 'NEWLINE'
-TT_EOF				= 'EOF'
+TT_INT = 'INT'
+TT_FLOAT = 'FLOAT'
+TT_STRING = 'STRING'
+TT_IDENTIFIER = 'IDENTIFIER'
+TT_KEYWORD = 'KEYWORD'
+TT_PLUS = 'PLUS'
+TT_MINUS = 'MINUS'
+TT_MUL = 'MUL'
+TT_DIV = 'DIV'
+TT_POW = 'POW'
+TT_EQ = 'EQ'
+TT_LPAREN = 'LPAREN'
+TT_RPAREN = 'RPAREN'
+TT_LSQUARE = 'LSQUARE'
+TT_RSQUARE = 'RSQUARE'
+TT_EE = 'EE'
+TT_NE = 'NE'
+TT_LT = 'LT'
+TT_GT = 'GT'
+TT_LTE = 'LTE'
+TT_GTE = 'GTE'
+TT_COMMA = 'COMMA'
+TT_ARROW = 'ARROW'
+TT_NEWLINE = 'NEWLINE'
+TT_EOF = 'EOF'
 
 KEYWORDS = [
   'VAR',
@@ -1441,6 +1441,12 @@ class Number(Value):
       return Number(int(self.value == other.value)).set_context(self.context), None
     else:
       return None, Value.illegal_operation(self, other)
+  
+  def sqrt(self):
+    if isinstance(Number):
+        return Number(math.sqrt(self.value)).set_context(self.context), None
+    else:
+      return None, Value.illegal_operation(self)
 
   def get_comparison_ne(self, other):
     if isinstance(other, Number):
@@ -1505,7 +1511,12 @@ class Number(Value):
 Number.null = Number(0)
 Number.false = Number(0)
 Number.true = Number(1)
-Number.math_PI = Number(math.pi)
+Number.math_PI = Number(3.141592653589793238462643383279502884197)
+Number.math_E = Number(2.718281828459045235360287471352662497757)
+Number.math_Tau = Number(6.283185307179586476925286766559005768394)
+Number.math_SupergoldenRatio = Number(1.465571231876768026656731225219939108025)
+Number.math_GoldenRatio = Number(1.618033988749894848204586834365638117720)
+Number.math_SilverRatio = Number(2.41421356237309504880)
 
 class String(Value):
   def __init__(self, value):
@@ -1702,14 +1713,14 @@ class BuiltInFunction(BaseFunction):
 
   #####################################
 
-  def execute_print(self, exec_ctx):
+  def execute_write(self, exec_ctx):
     print(str(exec_ctx.symbol_table.get('value')))
     return RTResult().success(Number.null)
-  execute_print.arg_names = ['value']
+  execute_write.arg_names = ['value']
   
-  def execute_print_ret(self, exec_ctx):
+  def execute_write_ret(self, exec_ctx):
     return RTResult().success(String(str(exec_ctx.symbol_table.get('value'))))
-  execute_print_ret.arg_names = ['value']
+  execute_write_ret.arg_names = ['value']
   
   def execute_input(self, exec_ctx):
     text = input()
@@ -1766,6 +1777,430 @@ class BuiltInFunction(BaseFunction):
     list_.elements.append(value)
     return RTResult().success(Number.null)
   execute_append.arg_names = ["list", "value"]
+
+  def execute_sqrt(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+    
+    return RTResult().success(Number(math.sqrt(number.value)))
+
+  execute_sqrt.arg_names = ["number"]
+
+  def execute_cbrt(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.cbrt(number.value)))
+
+  execute_cbrt.arg_names = ["number"]
+
+  def execute_sin(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+    
+    return RTResult().success(Number(math.sin(number.value)))
+
+  execute_sin.arg_names = ["number"]
+
+  def execute_cos(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.cos(number.value)))
+
+  execute_cos.arg_names = ["number"]
+
+  def execute_tan(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.tan(number.value)))
+
+  execute_tan.arg_names = ["number"]
+
+  def execute_asin(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.asin(number.value)))
+
+  execute_asin.arg_names = ["number"]
+
+  def execute_acos(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.acos(number.value)))
+
+  execute_acos.arg_names = ["number"]
+
+  def execute_atan(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.atan(number.value)))
+
+  execute_atan.arg_names = ["number"]
+
+  def execute_atan2(self, exec_ctx):
+        y = exec_ctx.symbol_table.get("y").value
+        x = exec_ctx.symbol_table.get("x").value
+        result = math.atan2(y, x)
+        return RTResult().success(Number(result))
+  
+  execute_atan2.arg_names = ["y", "x"]
+
+  def execute_squared(self, exec_ctx):
+        arg = exec_ctx.symbol_table.get("number").value
+        return RTResult().success(Number(arg ** 2))
+  
+  execute_squared.arg_names = ["number"]
+
+  def execute_factorial(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.factorial(number.value)))
+
+  execute_factorial.arg_names = ["number"]
+
+  def execute_round(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(round(number.value)))
+
+  execute_round.arg_names = ["number"]
+
+  def execute_exp(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.exp(number.value)))
+
+  execute_exp.arg_names = ["number"]
+  
+  def execute_pow(self, exec_ctx):
+    base = exec_ctx.symbol_table.get("base")
+    exponent = exec_ctx.symbol_table.get("exponent")
+    
+    if not isinstance(base, Number) or not isinstance(exponent, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Both arguments must be numbers",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.pow(base.value, exponent.value)))
+
+  execute_pow.arg_names = ["base", "exponent"]
+  
+  def execute_exp2(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.exp2(number.value)))
+  
+  execute_exp2.arg_names = ["number"]
+  
+  def execute_ceil(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+    
+    return RTResult().success(Number(math.ceil(number.value)))
+  
+  execute_ceil.arg_names = ["number"]
+
+  def execute_comb(self, exec_ctx):
+    n = exec_ctx.symbol_table.get("n")
+    k = exec_ctx.symbol_table.get("k")
+    
+    if not isinstance(n, Number) or not isinstance(k, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Both arguments must be numbers",
+        exec_ctx
+      ))
+    
+    result = math.comb(int(n.value), int(k.value))
+    return RTResult().success(Number(result))
+
+  execute_comb.arg_names = ["n", "k"]
+
+  def execute_copysign(self, exec_ctx):
+    value = exec_ctx.symbol_table.get("value")
+    sign = exec_ctx.symbol_table.get("sign")
+    
+    if not isinstance(value, Number) or not isinstance(sign, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Both arguments must be numbers",
+        exec_ctx
+      ))
+
+    result = math.copysign(value.value, sign.value)
+    return RTResult().success(Number(result))
+
+  execute_copysign.arg_names = ["value", "sign"]
+
+  def execute_fabs(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.fabs(number.value)
+    return RTResult().success(Number(result))
+
+  execute_fabs.arg_names = ["number"]
+
+  def execute_floor(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.floor(number.value)
+    return RTResult().success(Number(result))
+
+  execute_floor.arg_names = ["number"]
+
+  def execute_gamma(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.gamma(number.value)
+    return RTResult().success(Number(result))
+
+  execute_gamma.arg_names = ["number"]
+
+  def execute_log(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    if number.value <= 0:
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a positive number for logarithm",
+        exec_ctx
+      ))
+
+    result = math.log10(number.value)
+    return RTResult().success(Number(result))
+
+  execute_log.arg_names = ["number"]
+
+  def execute_log2(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.log2(number.value)
+    return RTResult().success(Number(result))
+
+  execute_log2.arg_names = ["number"]
+
+  def execute_log10(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.log10(number.value)
+    return RTResult().success(Number(result))
+
+  execute_log10.arg_names = ["number"]
+
+  def execute_logb(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    base = exec_ctx.symbol_table.get("base")
+
+    if not isinstance(number, Number) or not isinstance(base, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Both arguments must be numbers",
+        exec_ctx
+      ))
+
+    if number.value <= 0 or base.value <= 0 or base.value == 1:
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a positive number and base must be greater than 0 and not 1",
+        exec_ctx
+      ))
+
+    result = math.log(number.value, base.value)
+    return RTResult().success(Number(result))
+
+  execute_logb.arg_names = ["number", "base"]
+
+  def execute_log1p(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.log1p(number.value)
+    return RTResult().success(Number(result))
+
+  execute_log1p.arg_names = ["number"]
+
+  def execute_expm1(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.expm1(number.value)
+    return RTResult().success(Number(result))
+
+  execute_expm1.arg_names = ["number"]
+
+  def execute_fmod(self, exec_ctx):
+    x = exec_ctx.symbol_table.get("x")
+    y = exec_ctx.symbol_table.get("y")
+    
+    if not isinstance(x, Number) or not isinstance(y, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Both arguments must be numbers",
+        exec_ctx
+      ))
+
+    return RTResult().success(Number(math.fmod(x.value, y.value)))
+
+  execute_fmod.arg_names = ["x", "y"]
+
+  
+  def execute_frexp(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.frexp(number.value)
+    return RTResult().success(Number(result))
+
+  execute_frexp.arg_names = ["number"]
 
   def execute_pop(self, exec_ctx):
     list_ = exec_ctx.symbol_table.get("list")
@@ -1866,8 +2301,8 @@ class BuiltInFunction(BaseFunction):
     return RTResult().success(Number.null)
   execute_run.arg_names = ["fn"]
 
-BuiltInFunction.print       = BuiltInFunction("print")
-BuiltInFunction.print_ret   = BuiltInFunction("print_ret")
+BuiltInFunction.write       = BuiltInFunction("write")
+BuiltInFunction.write_ret   = BuiltInFunction("write_ret")
 BuiltInFunction.input       = BuiltInFunction("input")
 BuiltInFunction.input_int   = BuiltInFunction("input_int")
 BuiltInFunction.clear       = BuiltInFunction("clear")
@@ -1880,6 +2315,34 @@ BuiltInFunction.pop         = BuiltInFunction("pop")
 BuiltInFunction.extend      = BuiltInFunction("extend")
 BuiltInFunction.len					= BuiltInFunction("len")
 BuiltInFunction.run					= BuiltInFunction("run")
+BuiltInFunction.sqrt        = BuiltInFunction("sqrt")
+BuiltInFunction.cbrt        = BuiltInFunction("cbrt")
+BuiltInFunction.sine        = BuiltInFunction("sin")
+BuiltInFunction.cosine      = BuiltInFunction("cos")
+BuiltInFunction.tangent     = BuiltInFunction("cos")
+BuiltInFunction.arcsine     = BuiltInFunction("asin")
+BuiltInFunction.arccosine   = BuiltInFunction("acos")
+BuiltInFunction.arctangent  = BuiltInFunction("atan")
+BuiltInFunction.arctangent2 = BuiltInFunction("atan2")
+BuiltInFunction.squared     = BuiltInFunction("squared")
+BuiltInFunction.factorial   = BuiltInFunction("factorial")
+BuiltInFunction.round       = BuiltInFunction("round")
+BuiltInFunction.exp         = BuiltInFunction("exp")
+BuiltInFunction.exp2        = BuiltInFunction("exp2")
+BuiltInFunction.pow         = BuiltInFunction("pow")
+BuiltInFunction.ceil        = BuiltInFunction("ceil")
+BuiltInFunction.comb        = BuiltInFunction("comb")
+BuiltInFunction.copysign    = BuiltInFunction("copysign")
+BuiltInFunction.floor       = BuiltInFunction("floor")
+BuiltInFunction.gamma       = BuiltInFunction("gamma")
+BuiltInFunction.log         = BuiltInFunction("log")
+BuiltInFunction.log2        = BuiltInFunction("log2")
+BuiltInFunction.log10       = BuiltInFunction("log10")
+BuiltInFunction.logb        = BuiltInFunction("logb")
+BuiltInFunction.log1p       = BuiltInFunction("log1p")
+BuiltInFunction.expm1       = BuiltInFunction("expm1")
+BuiltInFunction.fmod        = BuiltInFunction("fmod")
+BuiltInFunction.frexp       = BuiltInFunction("frexp")
 
 #######################################
 # CONTEXT
@@ -2167,17 +2630,48 @@ class Interpreter:
   def visit_BreakNode(self, node, context):
     return RTResult().success_break()
 
-#######################################
-# RUN
-#######################################
-
 global_symbol_table = SymbolTable()
 global_symbol_table.set("null", Number.null)
 global_symbol_table.set("false", Number.false)
 global_symbol_table.set("true", Number.true)
+global_symbol_table.set("τ", Number.math_Tau)
+global_symbol_table.set("mathTau", Number.math_Tau)
+global_symbol_table.set("π", Number.math_PI)
+global_symbol_table.set("mathE", Number.math_E)
+global_symbol_table.set("mathSilverRatio", Number.math_SilverRatio)
+global_symbol_table.set("mathGoldenRatio", Number.math_GoldenRatio)
+global_symbol_table.set("mathSupergoldenRatio", Number.math_SupergoldenRatio)
+global_symbol_table.set("sqrt", BuiltInFunction.sqrt)
+global_symbol_table.set("cbrt", BuiltInFunction.cbrt)
+global_symbol_table.set("sin", BuiltInFunction.sine)
+global_symbol_table.set("cos", BuiltInFunction.cosine)
+global_symbol_table.set("tan", BuiltInFunction.tangent)
+global_symbol_table.set("arcsin", BuiltInFunction.arcsine)
+global_symbol_table.set("arccos", BuiltInFunction.arccosine)
+global_symbol_table.set("arctan", BuiltInFunction.arctangent)
+global_symbol_table.set("arctan2", BuiltInFunction.arctangent2)
+global_symbol_table.set("squared", BuiltInFunction.squared)
+global_symbol_table.set("factorial", BuiltInFunction.factorial)
+global_symbol_table.set("round", BuiltInFunction.round)
+global_symbol_table.set("exp", BuiltInFunction.exp)
+global_symbol_table.set("exp2", BuiltInFunction.exp2)
+global_symbol_table.set("expm1", BuiltInFunction.expm1)
+global_symbol_table.set("pow", BuiltInFunction.pow)
+global_symbol_table.set("ceil", BuiltInFunction.ceil)
+global_symbol_table.set("comb", BuiltInFunction.comb)
+global_symbol_table.set("copysign", BuiltInFunction.copysign)
+global_symbol_table.set("floor", BuiltInFunction.floor)
+global_symbol_table.set("gamma", BuiltInFunction.gamma)
+global_symbol_table.set("log", BuiltInFunction.log)
+global_symbol_table.set("log2", BuiltInFunction.log2)
+global_symbol_table.set("log10", BuiltInFunction.log10)
+global_symbol_table.set("logb", BuiltInFunction.logb)
+global_symbol_table.set("log1p", BuiltInFunction.log1p)
+global_symbol_table.set("fmod", BuiltInFunction.fmod)
+global_symbol_table.set("frexp", BuiltInFunction.frexp)
 global_symbol_table.set("mathPi", Number.math_PI)
-global_symbol_table.set("write", BuiltInFunction.print)
-global_symbol_table.set("writeRet", BuiltInFunction.print_ret)
+global_symbol_table.set("write", BuiltInFunction.write)
+global_symbol_table.set("writeRet", BuiltInFunction.write_ret)
 global_symbol_table.set("input", BuiltInFunction.input)
 global_symbol_table.set("inputInt", BuiltInFunction.input_int)
 global_symbol_table.set("clear", BuiltInFunction.clear)
@@ -2191,6 +2685,10 @@ global_symbol_table.set("pop", BuiltInFunction.pop)
 global_symbol_table.set("extend", BuiltInFunction.extend)
 global_symbol_table.set("len", BuiltInFunction.len)
 global_symbol_table.set("run", BuiltInFunction.run)
+
+#######################################
+# RUN
+#######################################
 
 def run(fn, text):
   # Generate tokens

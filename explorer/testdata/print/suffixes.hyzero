@@ -1,0 +1,15 @@
+# Hyzero programming language — Pre-Alpha version of the Private
+# Copyright 2022-2023 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
+# Copyright 2001-2023 Python Software Foundation (https://www.python.org/psf)
+
+FUN main(suffix) -> suffix + "ful"
+FUN main1(suffix) -> suffix + "ly"
+FUN main2(suffix) -> suffix + "less"
+
+write(main("beauti"))
+write(main("hope"))
+write(main("care"))
+write(main1("correct"))
+write(main1("quick"))
+write(main2("time"))
+write(main2("point"))

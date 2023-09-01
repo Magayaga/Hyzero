@@ -2,9 +2,13 @@
 # Copyright 2022-2023 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
 # Copyright 2001-2023 Python Software Foundation (https://www.python.org/psf)
 
-hyzero:
-	cc src/docs/c/chyzero.c -o chyzero
-	cc src/docs/c/hyzero-copyright.c -o hyzeroCopyright
-	cc src/docs/c/hyzero-help.c -o hyzeroHelp
-	cc src/docs/c/hyzero-release.c -o hyzeroRelease
-	cc src/docs/c/hyzero-version.c -o hyzeroVersion
+write(factorial(1))
+write(factorial(2))
+write(factorial(3))
+write(factorial(4))
+write(factorial(5))
+write(factorial(6))
+write(factorial(7))
+write(factorial(8))
+write(factorial(9))
+write(factorial(10))

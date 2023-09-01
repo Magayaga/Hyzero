@@ -132,4 +132,7 @@ dmypy.json
 pyvenv.cfg
 pip-selfcheck.json
 
+# Preview
+preview
+
 # End of https://www.gitignore.io/api/python
