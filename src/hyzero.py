@@ -1,6 +1,6 @@
 # Hyzero programming language — Pre-Alpha version of the Private
-# Copyright 2022-2023 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
-# Copyright 2001-2023 Python Software Foundation (https://www.python.org/psf)
+# Copyright 2022-2024 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
+# Copyright 2001-2024 Python Software Foundation (https://www.python.org/psf)
 
 #######################################
 # IMPORTS
@@ -18,7 +18,7 @@ import sys
 #######################################
 # CURRENT VERSION
 #######################################
-version = "v0.1.6-beta2"
+version = "v0.1.6-beta3"
 
 #######################################
 # CONSTANTS
