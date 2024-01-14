@@ -90,7 +90,7 @@ There are a few languages that have followed this model for other ecosystems, an
 
 ## Getting started
 
-Download the [Python](https://python.org/downloads) programming language.
+Download the [Python](https://python.org/downloads) programming language and [Git](https://git-scm.com/) distributed version control system.
 
 To build the **Hyzero** explorer yourself, follow these instructions:
 
@@ -113,14 +113,31 @@ Hyzero v0.1.6-beta2 (September 9, 2023) - created & developed by Cyril John Maga
 Hyzero > write("Hello, World!")
 ```
 
-### macOS and Linux
+### macOS
 ```shell
-# Download the Hyzero's code on macOS and Linux
+# Download the Hyzero's code on macOS
 $ git clone https://github.com/Magayaga/Hyzero.git
 $ cd Hyzero
 
 # Download the Python on macOS
 $ brew install python3
+
+# Run the explorer
+$ python3 src/hyzero.py explorer/testdata/math/math.hyzero
+$ python3 src/hyzero.py explorer/testdata/print/pyramid.hyzero
+
+# Run the shell
+$ python3 src/shell.py
+Hyzero v0.1.6-beta2 (September 9, 2023) - created & developed by Cyril John Magayaga
+Hyzero > write("Hello, World!")
+```
+
+### Linux and Windows subsystem for Linux
+
+```shell
+# Download the Hyzero's code on Linux
+$ git clone https://github.com/Magayaga/Hyzero.git
+$ cd Hyzero
 
 # Download the Python on Linux
 $ sudo apt-get install python3 # Ubuntu or Debian
