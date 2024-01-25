@@ -1518,6 +1518,19 @@ Number.math_SupergoldenRatio = Number(1.465571231876768026656731225219939108025)
 Number.math_GoldenRatio = Number(1.618033988749894848204586834365638117720)
 Number.math_SilverRatio = Number(2.41421356237309504880)
 
+# ANSI escape codes for text color
+HYBLACK = "\033[30m"
+HYRED = "\033[31m"
+HYGREEN = "\033[32m"
+HYYELLOW = "\033[33m"
+HYBLUE = "\033[34m"
+HYMAGENTA = "\033[35m"
+HYCYAN = "\033[36m"
+HYWHITE = "\033[37m"
+
+# ANSI escape code for resetting text color
+HYRESET = "\033[0m"
+
 class String(Value):
   def __init__(self, value):
     super().__init__()
@@ -1717,6 +1730,11 @@ class BuiltInFunction(BaseFunction):
     print(str(exec_ctx.symbol_table.get('value')))
     return RTResult().success(Number.null)
   execute_write.arg_names = ['value']
+
+  def execute_error(self, exec_ctx):
+    print(HYRED + str(exec_ctx.symbol_table.get('value')) + HYRESET)
+    return RTResult().success(Number.null)
+  execute_error.arg_names = ['value']
   
   def execute_write_ret(self, exec_ctx):
     return RTResult().success(String(str(exec_ctx.symbol_table.get('value'))))
@@ -2301,6 +2319,7 @@ class BuiltInFunction(BaseFunction):
     return RTResult().success(Number.null)
   execute_run.arg_names = ["fn"]
 
+BuiltInFunction.error       = BuiltInFunction("error")
 BuiltInFunction.write       = BuiltInFunction("write")
 BuiltInFunction.write_ret   = BuiltInFunction("write_ret")
 BuiltInFunction.input       = BuiltInFunction("input")
@@ -2631,6 +2650,7 @@ class Interpreter:
     return RTResult().success_break()
 
 global_symbol_table = SymbolTable()
+global_symbol_table.set("error", BuiltInFunction.error)
 global_symbol_table.set("null", Number.null)
 global_symbol_table.set("false", Number.false)
 global_symbol_table.set("true", Number.true)
