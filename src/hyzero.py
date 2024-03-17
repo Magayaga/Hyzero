@@ -18,7 +18,7 @@ import sys
 #######################################
 # CURRENT VERSION
 #######################################
-version = "v0.1.6-beta3"
+version = "v0.1.6-beta4"
 
 #######################################
 # CONSTANTS
@@ -2740,3 +2740,7 @@ if __name__ == "__main__":
         if error:
             print(error.as_string())
         sys.exit(0 if not error else 1)
+
+    else:
+        print("python hyzero.py [input files]")
+        sys.exit(1)
