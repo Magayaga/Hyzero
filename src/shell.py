@@ -15,7 +15,7 @@ while True:
     if text.strip() == "": 
         continue
     if text.strip() == "exit()" or (text.strip() == "" and "\x11" in text):
-        print("Exiting Hyzero programming language")
+        # print("Exiting Hyzero programming language")
         break
     result, error = hyzero.run('<stdin>', text)
 
