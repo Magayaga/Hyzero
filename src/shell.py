@@ -4,8 +4,8 @@
 
 import hyzero
 
-version = "v0.1.6-beta3"
-date = "January 29, 2024"
+version = "v0.1.6-beta4"
+date = "September 28, 2024"
 
 print(f"Hyzero {version} {date} - created & developed by Cyril John Magayaga")
 
