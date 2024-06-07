@@ -6,9 +6,7 @@
 # IMPORTS
 #######################################
 
-
 from platform import version
-from strings_with_arrows import *
 
 import string
 import os
@@ -18,7 +16,10 @@ import sys
 #######################################
 # CURRENT VERSION
 #######################################
-version = "v0.1.6-beta4"
+program_name = "hyzero"
+hyzero_version = "v0.1.6-beta4"
+hyzero_date = "September 28, 2024"
+hyzero_author = "Cyril John Magayaga"
 
 #######################################
 # CONSTANTS
@@ -27,6 +28,37 @@ version = "v0.1.6-beta4"
 DIGITS = '0123456789'
 LETTERS = string.ascii_letters
 LETTERS_DIGITS = LETTERS + DIGITS
+
+#######################################
+# STRING WITH ARROWS
+#######################################
+
+def string_with_arrows(text, pos_start, pos_end):
+	result = ''
+
+	# Calculate indices
+	idx_start = max(text.rfind('\n', 0, pos_start.idx), 0)
+	idx_end = text.find('\n', idx_start + 1)
+	if idx_end < 0: idx_end = len(text)
+	
+	# Generate each line
+	line_count = pos_end.ln - pos_start.ln + 1
+	for i in range(line_count):
+		# Calculate line columns
+		line = text[idx_start:idx_end]
+		col_start = pos_start.col if i == 0 else 0
+		col_end = pos_end.col if i == line_count - 1 else len(line) - 1
+
+		# Append to result
+		result += line + '\n'
+		result += ' ' * col_start + '^' * (col_end - col_start)
+
+		# Re-calculate indices
+		idx_start = idx_end
+		idx_end = text.find('\n', idx_start + 1)
+		if idx_end < 0: idx_end = len(text)
+
+	return result.replace('\t', '')
 
 #######################################
 # ERRORS
@@ -2707,6 +2739,33 @@ global_symbol_table.set("len", BuiltInFunction.len)
 global_symbol_table.set("run", BuiltInFunction.run)
 
 #######################################
+# PRINT INFOMRATION
+#######################################
+
+def print_help():
+  print(f"Usage: {program_name} [input files]\n")
+  print("Options: ")
+  print("   -h, --help                     Display this information.")
+  print("   -v, --version                  Display compiler version information.")
+  print("   -dv, --dumpversion             Display the version of the compiler.")
+  print("   -drd, --dumpreleasedate        Display the release date of the compiler.")
+  print("   --author                       Display the author information.")
+  print("\nFor bug reporting instructions, please see:")
+  print("[https://github.com/magayaga/hyzero]")
+
+def print_version():
+  print(f"{program_name} {hyzero_version} / {hyzero_date} - created & developed by {hyzero_author}")
+
+def print_dumpversion():
+  print(f"{hyzero_version}")
+
+def print_dumpreleasedate():
+  print(f"{hyzero_date}")
+
+def print_author():
+  print(f"Copyright (c) 2022-2024 {hyzero_author}")
+
+#######################################
 # RUN
 #######################################
 
@@ -2734,13 +2793,34 @@ def run(fn, text):
 #######################################
 if __name__ == "__main__":
     if len(sys.argv) > 1:
+        if sys.argv[1] in ["-h", "--help"]:
+            print_help()
+            sys.exit(0)
+        
+        elif sys.argv[1] in ["-v", "--version"]:
+            print_version()
+            sys.exit(0)
+
+        elif sys.argv[1] in ["-dv", "--dumpversion"]:
+            print_dumpversion()
+            sys.exit(0)
+        
+        elif sys.argv[1] in ["-drd", "--dumpreleasedate"]:
+            print_dumpreleasedate()
+            sys.exit(0)
+        
+        elif sys.argv[1] in ["--author"]:
+            print_author()
+            sys.exit(0)
+
         with open(sys.argv[1], 'r') as five:
             code = five.read()
         result, error = run(sys.argv[1], code)
+
         if error:
             print(error.as_string())
         sys.exit(0 if not error else 1)
 
     else:
-        print("python hyzero.py [input files]")
+        print(f"Usage: python {program_name} [input files]")
         sys.exit(1)

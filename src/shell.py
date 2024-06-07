@@ -5,17 +5,23 @@
 import hyzero
 import sys
 
-version = "v0.1.6-beta4"
-date = "September 28, 2024"
+hyzero_version = "v0.1.6-beta4"
+hyzero_date = "September 28, 2024"
+hyzero_author = "Cyril John Magayaga"
 
-print(f"Hyzero {version} {date} - created & developed by Cyril John Magayaga")
+print(f"Hyzero {hyzero_version} / {hyzero_date} - created & developed by {hyzero_author}")
 
 while True:
     text = input('Hyzero > ')
     if text.strip() == "": 
         continue
-    if text.strip() == "exit()" or (text.strip() == "" and "\x11" in text):
-        # print("Exiting Hyzero programming language")
+
+    elif text.strip() == "exit" or (text.strip() == "quit"):
+        print("Use exit() or Ctrl-Z plus Return to exit")
+        continue
+
+    elif text.strip() == "exit()" or (text.strip() == "" and "\x11" in text):
+        print("Exiting Hyzero programming language")
         break
     result, error = hyzero.run('<stdin>', text)
 
@@ -24,5 +30,6 @@ while True:
     elif result:
         if len(result.elements) == 1:
             print(repr(result.elements[0]))
+            
         else:
             print(repr(result))
