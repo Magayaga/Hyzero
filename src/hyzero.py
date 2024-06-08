@@ -2952,5 +2952,5 @@ if __name__ == "__main__":
         sys.exit(0 if not error else 1)
 
     else:
-        print(f"Usage: python {program_name} [input files]")
+        print(f"Usage: {program_name} [input files]")
         sys.exit(1)

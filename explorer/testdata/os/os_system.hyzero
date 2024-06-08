@@ -8,5 +8,5 @@
 # Whenever this method is used then the respective shell of the Operating system is opened
 # and the command is executed on it.
 
-# osSystem() is similar to the os.system()
+# osSystem() is similar to the os.system() in python
 osSystem("code")
