@@ -1788,6 +1788,11 @@ class BuiltInFunction(BaseFunction):
     return RTResult().success(Number(number))
   execute_input_int.arg_names = []
 
+  def execute_os_system(self, exec_ctx):
+    os.system(str(exec_ctx.symbol_table.get('value')))
+    return RTResult().success(Number.null)
+  execute_os_system.arg_names = ['value']
+
   def execute_clear(self, exec_ctx):
     os.system('cls' if os.name == 'nt' else 'cls') 
     return RTResult().success(Number.null)
@@ -2512,6 +2517,7 @@ BuiltInFunction.radians     = BuiltInFunction("radians")
 BuiltInFunction.arcsinh     = BuiltInFunction("arcsinh")
 BuiltInFunction.arccosh     = BuiltInFunction("arccosh")
 BuiltInFunction.arctanh     = BuiltInFunction("arctanh")
+BuiltInFunction.os_system   = BuiltInFunction("os_system")
 
 #######################################
 # CONTEXT
@@ -2849,6 +2855,7 @@ global_symbol_table.set("write", BuiltInFunction.write)
 global_symbol_table.set("writeRet", BuiltInFunction.write_ret)
 global_symbol_table.set("input", BuiltInFunction.input)
 global_symbol_table.set("inputInt", BuiltInFunction.input_int)
+global_symbol_table.set("osSystem", BuiltInFunction.os_system)
 global_symbol_table.set("clear", BuiltInFunction.clear)
 global_symbol_table.set("cls", BuiltInFunction.clear)
 global_symbol_table.set("isNum", BuiltInFunction.is_number)
