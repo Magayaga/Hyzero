@@ -1,0 +1,9 @@
+# Hyzero programming language — Pre-Alpha version of the Private
+# Copyright 2022-2024 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
+# Copyright 2001-2024 Python Software Foundation (https://www.python.org/psf)
+
+# Radians
+write(radians(57.29577951308232))
+write(radians(180))
+write(radians(180/2))
+write(radians(45))

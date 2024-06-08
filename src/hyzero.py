@@ -14,7 +14,7 @@ import math
 import sys
 
 #######################################
-# CURRENT VERSION
+# CURRENT VERSION, DATE, AND PROGRAM
 #######################################
 program_name = "hyzero"
 hyzero_version = "v0.1.6-beta4"
@@ -2236,7 +2236,6 @@ class BuiltInFunction(BaseFunction):
 
   execute_fmod.arg_names = ["x", "y"]
 
-  
   def execute_frexp(self, exec_ctx):
     number = exec_ctx.symbol_table.get("number")
 
@@ -2251,6 +2250,120 @@ class BuiltInFunction(BaseFunction):
     return RTResult().success(Number(result))
 
   execute_frexp.arg_names = ["number"]
+
+  def execute_degrees(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.degrees(number.value)
+    return RTResult().success(Number(result))
+
+  execute_degrees.arg_names = ["number"]
+
+  def execute_radians(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+
+    result = math.radians(number.value)
+    return RTResult().success(Number(result))
+
+  execute_radians.arg_names = ["number"]
+
+  def execute_sinh(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+    
+    return RTResult().success(Number(math.sinh(number.value)))
+
+  execute_sinh.arg_names = ["number"]
+
+  def execute_cosh(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+    
+    return RTResult().success(Number(math.cosh(number.value)))
+
+  execute_cosh.arg_names = ["number"]
+
+  def execute_tanh(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+    
+    return RTResult().success(Number(math.tanh(number.value)))
+
+  execute_tanh.arg_names = ["number"]
+
+  def execute_arcsinh(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+    
+    return RTResult().success(Number(math.asinh(number.value)))
+
+  execute_arcsinh.arg_names = ["number"]
+
+  def execute_arccosh(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+    
+    return RTResult().success(Number(math.acosh(number.value)))
+
+  execute_arccosh.arg_names = ["number"]
+
+  def execute_arctanh(self, exec_ctx):
+    number = exec_ctx.symbol_table.get("number")
+    
+    if not isinstance(number, Number):
+      return RTResult().failure(RTError(
+        self.pos_start, self.pos_end,
+        "Argument must be a number",
+        exec_ctx
+      ))
+    
+    return RTResult().success(Number(math.atanh(number.value)))
+
+  execute_arctanh.arg_names = ["number"]
 
   def execute_pop(self, exec_ctx):
     list_ = exec_ctx.symbol_table.get("list")
@@ -2394,6 +2507,11 @@ BuiltInFunction.log1p       = BuiltInFunction("log1p")
 BuiltInFunction.expm1       = BuiltInFunction("expm1")
 BuiltInFunction.fmod        = BuiltInFunction("fmod")
 BuiltInFunction.frexp       = BuiltInFunction("frexp")
+BuiltInFunction.degrees     = BuiltInFunction("degrees")
+BuiltInFunction.radians     = BuiltInFunction("radians")
+BuiltInFunction.arcsinh     = BuiltInFunction("arcsinh")
+BuiltInFunction.arccosh     = BuiltInFunction("arccosh")
+BuiltInFunction.arctanh     = BuiltInFunction("arctanh")
 
 #######################################
 # CONTEXT
@@ -2695,6 +2813,8 @@ global_symbol_table.set("mathGoldenRatio", Number.math_GoldenRatio)
 global_symbol_table.set("mathSupergoldenRatio", Number.math_SupergoldenRatio)
 global_symbol_table.set("sqrt", BuiltInFunction.sqrt)
 global_symbol_table.set("cbrt", BuiltInFunction.cbrt)
+global_symbol_table.set("degrees", BuiltInFunction.degrees)
+global_symbol_table.set("radians", BuiltInFunction.radians)
 global_symbol_table.set("sin", BuiltInFunction.sine)
 global_symbol_table.set("cos", BuiltInFunction.cosine)
 global_symbol_table.set("tan", BuiltInFunction.tangent)
@@ -2702,6 +2822,9 @@ global_symbol_table.set("arcsin", BuiltInFunction.arcsine)
 global_symbol_table.set("arccos", BuiltInFunction.arccosine)
 global_symbol_table.set("arctan", BuiltInFunction.arctangent)
 global_symbol_table.set("arctan2", BuiltInFunction.arctangent2)
+global_symbol_table.set("arcsinh", BuiltInFunction.arcsinh)
+global_symbol_table.set("arccosh", BuiltInFunction.arccosh)
+global_symbol_table.set("arctanh", BuiltInFunction.arctanh)
 global_symbol_table.set("squared", BuiltInFunction.squared)
 global_symbol_table.set("factorial", BuiltInFunction.factorial)
 global_symbol_table.set("round", BuiltInFunction.round)
