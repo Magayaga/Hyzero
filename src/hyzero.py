@@ -11,6 +11,7 @@ from platform import version
 import string
 import os
 import math
+import webbrowser
 import sys
 
 #######################################
@@ -1788,10 +1789,43 @@ class BuiltInFunction(BaseFunction):
     return RTResult().success(Number(number))
   execute_input_int.arg_names = []
 
+  #####################################
+  # OS
+  #####################################
+
   def execute_os_system(self, exec_ctx):
     os.system(str(exec_ctx.symbol_table.get('value')))
     return RTResult().success(Number.null)
   execute_os_system.arg_names = ['value']
+
+  def execute_os_mkdir(self, exec_ctx):
+    os.mkdir(str(exec_ctx.symbol_table.get('value')))
+    return RTResult().success(Number.null)
+  execute_os_mkdir.arg_names = ['value']
+
+  def execute_os_rmdir(self, exec_ctx):
+    os.rmdir(str(exec_ctx.symbol_table.get('value')))
+    return RTResult().success(Number.null)
+  execute_os_rmdir.arg_names = ['value']
+
+  #####################################
+  # WEBBROWSER
+  #####################################
+
+  def execute_webbrowser_open(self, exec_ctx):
+    webbrowser.open(str(exec_ctx.symbol_table.get('value')))
+    return RTResult().success(Number.null)
+  execute_webbrowser_open.arg_names = ['value']
+
+  def execute_webbrowser_open_new(self, exec_ctx):
+    webbrowser.open_new(str(exec_ctx.symbol_table.get('value')))
+    return RTResult().success(Number.null)
+  execute_webbrowser_open_new.arg_names = ['value']
+
+  def execute_webbrowser_open_tab(self, exec_ctx):
+    webbrowser.open_new_tab(str(exec_ctx.symbol_table.get('value')))
+    return RTResult().success(Number.null)
+  execute_webbrowser_open_tab.arg_names = ['value']
 
   def execute_clear(self, exec_ctx):
     os.system('cls' if os.name == 'nt' else 'cls') 
@@ -2518,6 +2552,11 @@ BuiltInFunction.arcsinh     = BuiltInFunction("arcsinh")
 BuiltInFunction.arccosh     = BuiltInFunction("arccosh")
 BuiltInFunction.arctanh     = BuiltInFunction("arctanh")
 BuiltInFunction.os_system   = BuiltInFunction("os_system")
+BuiltInFunction.os_mkdir    = BuiltInFunction("os_mkdir")
+BuiltInFunction.os_rmdir    = BuiltInFunction("os_rmdir")
+BuiltInFunction.webbrowser_open = BuiltInFunction("webbrowser_open")
+BuiltInFunction.webbrowser_open_new = BuiltInFunction("webbrowser_open_new")
+BuiltInFunction.webbrowser_open_tab = BuiltInFunction("webbrowser_open_tab")
 
 #######################################
 # CONTEXT
@@ -2856,6 +2895,11 @@ global_symbol_table.set("writeRet", BuiltInFunction.write_ret)
 global_symbol_table.set("input", BuiltInFunction.input)
 global_symbol_table.set("inputInt", BuiltInFunction.input_int)
 global_symbol_table.set("osSystem", BuiltInFunction.os_system)
+global_symbol_table.set("osMkdir", BuiltInFunction.os_mkdir)
+global_symbol_table.set("osRmdir", BuiltInFunction.os_rmdir)
+global_symbol_table.set("webBrowserOpen", BuiltInFunction.webbrowser_open)
+global_symbol_table.set("webBrowserOpenNew", BuiltInFunction.webbrowser_open_new)
+global_symbol_table.set("webBrowserOpenTab", BuiltInFunction.webbrowser_open_tab)
 global_symbol_table.set("clear", BuiltInFunction.clear)
 global_symbol_table.set("cls", BuiltInFunction.clear)
 global_symbol_table.set("isNum", BuiltInFunction.is_number)

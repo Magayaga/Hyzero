@@ -1,0 +1,9 @@
+# Hyzero programming language — Pre-Alpha version of the Private
+# Copyright 2022-2024 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
+# Copyright 2001-2024 Python Software Foundation (https://www.python.org/psf)
+
+# osMkdir() method in Hyzero is used to create a directory in Hyzero
+# or create a directory with Hyzero named path with the specified numeric mode. 
+
+# osMkdir() is similar to the os.mkdir() in python
+osMkdir("code")
