@@ -1,13 +1,13 @@
 # Hyzero programming language — Pre-Alpha version of the Private
-# Copyright 2022-2024 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
-# Copyright 2001-2024 Python Software Foundation (https://www.python.org/psf)
+# Copyright 2022-2025 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
+# Copyright 2001-2025 Python Software Foundation (https://www.python.org/psf)
 
 import hyzero
 import sys
 
 program_name = "hyzero"
-hyzero_version = "v0.1.6-beta4"
-hyzero_date = "September 28, 2024"
+hyzero_version = "v0.1.6-beta5"
+hyzero_date = "April 29, 2025"
 hyzero_author = "Cyril John Magayaga"
 
 print(f"{program_name} {hyzero_version} / {hyzero_date} - created & developed by {hyzero_author}")
@@ -19,7 +19,7 @@ while True:
         continue
 
     elif text.strip() == "copyright":
-        print("Copyright (c) 2022-2024 Cyril John Magayaga")
+        print("Copyright (c) 2022-2025 Cyril John Magayaga")
         continue
 
     elif text.strip() == "exit" or (text.strip() == "quit"):
