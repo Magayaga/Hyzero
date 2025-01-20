@@ -1,4 +1,4 @@
-# Download
+# Hyzero's Download
 
 * Downloading git
   ```
@@ -9,3 +9,7 @@
   ```
   gh repo clone Magayaga/Hyzero
   ```
+
+### Copyright
+
+Copyright (c) 2022-2025 Cyril John Magayaga
