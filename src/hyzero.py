@@ -1,6 +1,6 @@
 # Hyzero programming language — Pre-Alpha version of the Private
-# Copyright 2022-2024 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
-# Copyright 2001-2024 Python Software Foundation (https://www.python.org/psf)
+# Copyright 2022-2025 Cyril John Magayaga (https://github.com/magayaga) (https://facebook.com/Cyrilnotes)
+# Copyright 2001-2025 Python Software Foundation (https://www.python.org/psf)
 
 #######################################
 # IMPORTS
@@ -18,8 +18,8 @@ import sys
 # CURRENT VERSION, DATE, AND PROGRAM
 #######################################
 program_name = "hyzero"
-hyzero_version = "v0.1.6-beta4"
-hyzero_date = "September 28, 2024"
+hyzero_version = "v0.1.6-beta5"
+hyzero_date = "April 29, 2025"
 hyzero_author = "Cyril John Magayaga"
 
 #######################################
@@ -2937,7 +2937,7 @@ def print_dumpreleasedate():
   print(f"{hyzero_date}")
 
 def print_author():
-  print(f"Copyright (c) 2022-2024 {hyzero_author}")
+  print(f"Copyright (c) 2022-2025 {hyzero_author}")
 
 #######################################
 # RUN
