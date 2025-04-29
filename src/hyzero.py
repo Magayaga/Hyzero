@@ -2940,27 +2940,124 @@ def print_author():
   print(f"Copyright (c) 2022-2025 {hyzero_author}")
 
 #######################################
+# REPL
+#######################################
+
+def get_input_with_ctrlq():
+    """Get input with support for Ctrl+Q to exit"""
+    try:
+        # Try to use readchar for Ctrl+Q support if available  
+        import readchar
+
+        print("Hyzero > ", end="", flush=True)
+        chars = []
+        while True:
+            char = readchar.readchar()
+            
+            # Check for Ctrl+Q (ASCII 17)
+            if ord(char) == 17:
+                print("\nCtrl+Q detected. Exiting REPL.")
+                return "exit"
+                
+            # Handle backspace/delete
+            elif ord(char) in (8, 127):  # Backspace or Delete
+                if chars:
+                    # Remove last character from both the list and the display
+                    chars.pop()
+                    print("\b \b", end="", flush=True)
+                    
+            # Handle Enter key
+            elif ord(char) in (10, 13):  # Enter/Return
+                print()  # Move to next line
+                return "".join(chars)
+                
+            # Handle regular characters
+            else:
+                chars.append(char)
+                print(char, end="", flush=True)
+    except ImportError:
+        # Fall back to regular input if readchar is not available
+        return input("Hyzero > ")
+
+def repl():
+    """Interactive Read-Eval-Print Loop"""
+    print(f"{program_name} {hyzero_version} / {hyzero_date} - created & developed by {hyzero_author}")
+    print('Type "copyright" for more information.')
+    
+    while True:
+        try:
+            user_input = get_input_with_ctrlq()
+            
+            # Check for exit commands
+            if user_input.lower() in ["exit", "quit"]:
+                print("Use exit() or Ctrl-Q plus Return to exit")
+                continue
+
+            if user_input.lower() == "exit()":
+                print("Exiting Hyzero programming language")
+                break
+            
+            # Check for help command
+            if user_input.lower() == "help":
+                print("Available commands:")
+                print("  help - Display this help message of the REPL")
+                print("  helps - Display this information")
+                print("  exit/quit - Exit the REPL")
+                print("  Ctrl+Q - Exit the REPL")
+                print("  clear - Clear the screen")
+                print("  version - Display version information")
+                continue
+
+            if user_input.lower() == "helps":
+                print_help()
+                continue
+                
+            # Check for clear command
+            if user_input.lower() == "clear":
+                # This is a simple way to "clear" the console by printing newlines
+                print("\n" * 50)
+                continue
+                
+            # Check for version command
+            if user_input.lower() == "version":
+                print_version()
+                continue
+            
+            # Process and execute the code
+            result, error = run("<stdin>", user_input)
+            
+            if error:
+                print(error.as_string())
+            elif result:
+                print(result)
+                
+        except KeyboardInterrupt:
+            print("\nKeyboard interrupt detected. Type 'exit' to quit.")
+        except Exception as e:
+            print(f"An error occurred: {str(e)}")
+
+#######################################
 # RUN
 #######################################
 
 def run(fn, text):
-  # Generate tokens
-  lexer = Lexer(fn, text)
-  tokens, error = lexer.make_tokens()
-  if error: return None, error
+    # Generate tokens
+    lexer = Lexer(fn, text)
+    tokens, error = lexer.make_tokens()
+    if error: return None, error
+    
+    # Generate AST
+    parser = Parser(tokens)
+    ast = parser.parse()
+    if ast.error: return None, ast.error
   
-  # Generate AST
-  parser = Parser(tokens)
-  ast = parser.parse()
-  if ast.error: return None, ast.error
-
-  # Run program
-  interpreter = Interpreter()
-  context = Context('<program>')
-  context.symbol_table = global_symbol_table
-  result = interpreter.visit(ast.node, context)
-
-  return result.value, result.error
+    # Run program
+    interpreter = Interpreter()
+    context = Context('<program>')
+    context.symbol_table = global_symbol_table
+    result = interpreter.visit(ast.node, context)
+  
+    return result.value, result.error
 
 #######################################
 # IMPORT SYS
@@ -2970,7 +3067,7 @@ if __name__ == "__main__":
         if sys.argv[1] in ["-h", "--help"]:
             print_help()
             sys.exit(0)
-        
+
         elif sys.argv[1] in ["-v", "--version"]:
             print_version()
             sys.exit(0)
@@ -2978,23 +3075,31 @@ if __name__ == "__main__":
         elif sys.argv[1] in ["-dv", "--dumpversion"]:
             print_dumpversion()
             sys.exit(0)
-        
+
         elif sys.argv[1] in ["-drd", "--dumpreleasedate"]:
             print_dumpreleasedate()
             sys.exit(0)
-        
+
         elif sys.argv[1] in ["--author"]:
             print_author()
             sys.exit(0)
-
-        with open(sys.argv[1], 'r') as five:
-            code = five.read()
-        result, error = run(sys.argv[1], code)
-
-        if error:
-            print(error.as_string())
-        sys.exit(0 if not error else 1)
-
+        
+        # Process input file
+        try:
+            with open(sys.argv[1], 'r') as file:
+                code = file.read()
+            result, error = run(sys.argv[1], code)
+            
+            if error:
+                print(error.as_string())
+            sys.exit(0 if not error else 1)
+        except FileNotFoundError:
+            print(f"Error: File '{sys.argv[1]}' not found")
+            sys.exit(1)
+        except Exception as e:
+            print(f"Error: {str(e)}")
+            sys.exit(1)
     else:
-        print(f"Usage: {program_name} [input files]")
-        sys.exit(1)
+        # No arguments provided, start REPL
+        repl()
+        sys.exit(0)
