@@ -77,7 +77,9 @@ __Hyzero__ programming language become **Strong** and **Dynamic** programming la
 
 **On August 30, 2022**, Cyril John Magayaga announced that __Hyzero__ programming language become _public open-source projects_.
 
-**On March 19, 2023**, Cyril John Magayaga says [**_pythOwO_**](https://github.com/virejdasani/pythOwO) programming language, It should be fixed and it is english language.
+**On March 19, 2023**, Cyril John Magayaga says [**_pythOwO_**](https://github.com/virejdasani/pythOwO) programming language, it should be fixed, and it is in the English language.
+
+**On March 3, 2026**, Cyril John Magayaga announced that adding a **functional** programming language and uppercase keywords was renamed to lowercase keywords.
 
 ### Build of the Hyzero
 There are a few languages that have followed this model for other ecosystems, and Hyzero aims to fill an analogous role for Python:
@@ -156,8 +158,8 @@ Hyzero > write("Hello, World!")
 ## Copyright & License
 
 ### Copyright: 
-* Copyright 2022-2025 [Cyril John Magayaga](https://github.com/magayaga)
-* Copyright 2001-2025 [Python Software Foundation](https://www.python.org/psf/)
+* Copyright 2022-2026 [Cyril John Magayaga](https://github.com/magayaga)
+* Copyright 2001-2026 [Python Software Foundation](https://www.python.org/psf/)
 
 ### License:
 The **Hyzero** documents, design, implementation, and related tools are hosted on **GitHub public** under the [**OpinionOne (Latest Version 2)**](LICENSE).
